@@ -4,8 +4,6 @@ import pyttsx3
 import musicLibrary
 import requests
 
-# pip install pocketsphinx
-
 recognizer = sr.Recognizer()
 engine = pyttsx3.init() 
 newsapi = "aafac4d394ab452aae474419bcf2f18c"
@@ -32,7 +30,7 @@ def processCommand(c):
         webbrowser.open(link)
 
     elif "news" in c.lower():
-        r = requests.get(f"https://newsapi.org/v2/top-headlines?country=in&apiKey={newsapi}")
+        r = requests.get(f"https://newsapi.org/v2/top-headlines?country=pk&apiKey={newsapi}")
         if r.status_code == 200:
             # Parse the JSON response
             data = r.json()
@@ -71,4 +69,5 @@ if __name__ == "__main__":
 
 
         except Exception as e:
+
             print("Error; {0}".format(e))
